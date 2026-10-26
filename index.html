@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#020b16">
+  <title>Controle AURA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <section class="hero" aria-label="AURA Robô Pedagógico">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="brand">
+        <div class="wordmark" aria-label="AURA"><span class="a-mark">A</span>URA</div>
+        <div class="brand-subtitle">ROBÔ PEDAGÓGICO</div>
+      </div>
+    </section>
+
+    <section id="indicadorConexao" class="connection-card connection-offline">
+      <div class="connection-copy">
+        <div class="connection-title-row">
+          <span class="connection-dot"></span>
+          <strong id="textoConexao">Desconectado</strong>
+        </div>
+        <p id="textoAjudaConexao">Conecte-se ao robô para iniciar.</p>
+      </div>
+      <button id="botaoBluetooth" class="connect-button" type="button">
+        <svg class="bluetooth-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.71 7.71 12 2h-1v7.59L6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 11 14.41V22h1l5.71-5.71L13.41 12l4.3-4.29ZM13 5.83l1.88 1.88L13 9.59V5.83Zm1.88 10.46L13 18.17v-3.76l1.88 1.88Z"/>
+        </svg>
+        <span>Conectar ao AURA</span>
+      </button>
+    </section>
+
+    <section class="destination-section">
+      <h2>Destino</h2>
+      <p class="section-help">Selecione o ponto de atendimento.</p>
+
+      <div class="route" role="group" aria-label="Seleção de destino">
+        <div class="route-line" aria-hidden="true"></div>
+
+        <button class="ponto ponto-base" data-destino="INICIO" type="button" disabled aria-label="Base">
+          <span class="node node-base">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5v-8.3Z"/></svg>
+          </span>
+          <span class="node-label">Base</span>
+        </button>
+
+        <button class="ponto ponto-a" data-destino="PONTO_A" type="button" disabled aria-label="Ponto A">
+          <span class="node node-a">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0H5Z"/></svg>
+          </span>
+          <span class="node-label">A</span>
+        </button>
+
+        <button class="ponto ponto-b" data-destino="PONTO_B" type="button" disabled aria-label="Ponto B">
+          <span class="node node-b">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0H5Z"/></svg>
+          </span>
+          <span class="node-label">B</span>
+        </button>
+      </div>
+
+      <button id="botaoEnviar" class="send-button" type="button" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.3 3.3 10.5c-.85.34-.82 1.56.05 1.85l7.08 2.36 2.36 7.08c.29.87 1.51.9 1.85.05L21.8 3.64c.09-.23-.08-.42-.3-.34Zm-8.28 15.35-1.44-4.33 5.65-5.65-6.6 4.7-4.33-1.44 12.08-4.78-5.36 11.5Z"/></svg>
+        <span>Enviar Destino</span>
+      </button>
+    </section>
+
+    <section class="status-card">
+      <div class="status-header">
+        <h2>Status do Robô</h2>
+        <svg class="signal" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h3v-5H4v5Zm5 0h3v-8H9v8Zm5 0h3V8h-3v12Zm5 0h3V4h-3v16Z"/></svg>
+      </div>
+      <div class="status-row">
+        <span id="statusDot" class="status-dot"></span>
+        <span id="statusAgv">Aguardando conexão</span>
+      </div>
+    </section>
+
+    <div class="sr-only" aria-live="polite">
+      <span id="posicaoAtual">Início</span>
+      <span id="destinoSelecionado">Nenhum</span>
+      <span id="avisoSistema">Conecte ao robô para começar.</span>
+      <span id="mensagem"></span>
+    </div>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
